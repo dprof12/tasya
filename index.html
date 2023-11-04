@@ -110,6 +110,106 @@ we've been together for :
     Me always love u -Dava
   </div>
   <div
+  style="
+    width: 200px;
+    height: 186px;
+    left: 60px;
+    top: 1198px;
+    position: absolute;
+    color: white;
+    font-size: 220px;
+    font-family: Montserrat;
+    font-weight: 800;
+    word-wrap: break-word;
+    text-align: center;
+  "
+>
+<p id="years1">00</p>
+</div>
+<div
+  style="
+    width: 212px;
+    height: 71px;
+    left: 70px;
+    top: 1630px;
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    font-family: Montserrat;
+    font-weight: 800;
+    word-wrap: break-word;
+  "
+>
+  Years
+</div>
+<div
+  style="
+    width: 436px;
+    height: 186px;
+    left: 784px;
+    top: 1198px;
+    position: absolute;
+    color: white;
+    font-size: 220px;
+    font-family: Montserrat;
+    font-weight: 800;
+    word-wrap: break-word;
+    text-align: center;
+  "
+>
+<p id="days1">00</p>
+</div>
+<div
+  style="
+    width: 260px;
+    height: 94px;
+    left: 924px;
+    top: 1630px;
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    font-family: Montserrat;
+    font-weight: 800;
+    word-wrap: break-word;
+  "
+>
+  Days
+</div>
+<div
+  style="
+    width: 436px;
+    height: 186px;
+    left: 357px;
+    top: 1198px;
+    position: absolute;
+    color: white;
+    font-size: 220px;
+    font-family: Montserrat;
+    font-weight: 800;
+    word-wrap: break-word;
+    text-align: center;
+  "
+>
+<p id="months1">00</p>
+</div>
+<div
+  style="
+    width: 325px;
+    height: 60px;
+    left: 455px;
+    top: 1630px;
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    font-family: Montserrat;
+    font-weight: 800;
+    word-wrap: break-word;
+  "
+>
+  Months
+</div>
+  <!--
+  <div
     style="
       width: 600px;
       height: 186px;
@@ -125,7 +225,7 @@ we've been together for :
     "
   > 
       
-    <p id="days">00</p>
+    <p id="days1">00</p>
   </div>
   <div
     class="Years"
@@ -144,9 +244,10 @@ we've been together for :
   >
     days
   </div>
- 
-</div>
 
+</div>
+-->
+<!--
 <script>
     var countDownDate = new Date("2017-12-11").getTime();
     var x = setInterval(function(){
@@ -159,3 +260,40 @@ we've been together for :
     },1000);
 
 </script>
+-->
+ <script>
+        // Date to count from
+        var startDate = new Date('2017-12-12');
+
+        // Function to calculate years, months, and days
+        function calculateTimeSince() {
+            var currentDate = new Date();
+
+            var yearsDifference = currentDate.getFullYear() - startDate.getFullYear();
+            var monthsDifference = currentDate.getMonth() - startDate.getMonth();
+            var daysDifference = currentDate.getDate() - startDate.getDate();
+
+            // Adjust for negative month or day differences
+            if (daysDifference < 0) {
+                monthsDifference--;
+                daysDifference += new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+            }
+            if (monthsDifference < 0) {
+                yearsDifference--;
+                monthsDifference += 12;
+            }
+
+            return {
+                years: yearsDifference,
+                months: monthsDifference,
+                days: daysDifference
+            };
+          
+        }
+        var timeSince = calculateTimeSince();
+        document.getElementById("years1").innerHTML = timeSince.years;
+        document.getElementById("months1").innerHTML = timeSince.months;
+        document.getElementById("days1").innerHTML = timeSince.days;
+
+        // Update the countdown element with the calculated time
+         </script>
